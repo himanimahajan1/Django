@@ -1,0 +1,14 @@
+<h1>{{ customer }}</h1>
+<p>Email: {{ customer.email }}</p>
+<p>Phone: {{ customer.phone }}</p>
+
+<h2>Accounts</h2>
+<ul>
+{% for account in accounts %}
+    <li>
+        <a href="{% url 'account_detail' account.pk %}">
+            {{ account.account_type }} - ${{ account.balance }}
+        </a>
+    </li>
+{% endfor %}
+</ul>

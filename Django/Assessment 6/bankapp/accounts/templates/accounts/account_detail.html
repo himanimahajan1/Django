@@ -1,0 +1,15 @@
+<h1>{{ account.account_type }} Account</h1>
+<p>Customer: {{ account.customer }}</p>
+<p>Balance: ${{ account.balance }}</p>
+
+<a href="{% url 'create_transaction' account.pk %}">New Transaction</a>
+
+<h2>Transactions</h2>
+<ul>
+{% for transaction in transactions %}
+    <li>
+        {{ transaction.transaction_type }}: ${{ transaction.amount }}
+        ({{ transaction.created_at }})
+    </li>
+{% endfor %}
+</ul>
