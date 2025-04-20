@@ -1,0 +1,7 @@
+<h2>{{ form.instance.pk|yesno:"Update Employee,Add New Employee" }}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+<a href="{% url 'employee_list' %}">Back to List</a>

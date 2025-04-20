@@ -1,0 +1,18 @@
+<h2>Employee List</h2>
+<a href="{% url 'employee_create' %}">Add New Employee</a>
+<table border="1">
+  <tr>
+    <th>ID</th><th>Name</th><th>Company</th><th>Actions</th>
+  </tr>
+  {% for emp in employees %}
+  <tr>
+    <td>{{ emp.employee_id }}</td>
+    <td>{{ emp.f_name }} {{ emp.l_name }}</td>
+    <td>{{ emp.company_name }}</td>
+    <td>
+      <a href="{% url 'employee_update' emp.pk %}">Edit</a>
+      <a href="{% url 'employee_delete' emp.pk %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
